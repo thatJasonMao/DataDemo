@@ -5,9 +5,9 @@ public class XZCircleMotion : MonoBehaviour
 {
     public static Vector3 centerPoint = new Vector3(0, 0.5f, 0);
 
-    private float radius = 5f;
+    private float radius = 0f;
 
-    private float angularSpeed = 360f;
+    private float angularSpeed = 0f;
 
     private float _currentAngle;
 
@@ -15,6 +15,10 @@ public class XZCircleMotion : MonoBehaviour
 
     void Start()
     {
+        radius = Random.Range(1f, 10f);
+
+        angularSpeed = Random.Range(360f, 720f);
+
         _transform = transform;
         _transform.position = new Vector3(centerPoint.x + radius, centerPoint.y, centerPoint.z);
         _currentAngle = 0f;
