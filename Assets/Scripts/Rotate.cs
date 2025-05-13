@@ -13,8 +13,10 @@ public class XZCircleMotion : MonoBehaviour
 
     private Transform _transform;
 
-    void Start()
+    private void Awake()
     {
+        AI_Reference.Instance.RegisterNPC(this.gameObject);
+        
         radius = Random.Range(1f, 10f);
 
         angularSpeed = Random.Range(360f, 720f);
@@ -24,7 +26,7 @@ public class XZCircleMotion : MonoBehaviour
         _currentAngle = 0f;
     }
 
-    void Update()
+    private void Update()
     {
         _currentAngle += angularSpeed * Time.deltaTime;
         _currentAngle %= 360f;
@@ -35,5 +37,10 @@ public class XZCircleMotion : MonoBehaviour
         float zPos = centerPoint.z + Mathf.Sin(radians) * radius;
 
         _transform.position = new Vector3(xPos, centerPoint.y, zPos);
+    }
+
+    private void OnDestroy()
+    {
+        AI_Reference.Instance.UnRegisterNPC(this.gameObject);
     }
 }

@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class AI_Reference : MonoBehaviour
+public class AI_Reference: MonoBehaviour
 {
-    public static List<GameObject> SceneNPCs;
+    private static int MaxGameObejctCount = 50;
 
-    public static bool IsModifying = false;
-
-    private int MaxGameObejctCount;
+    public List<GameObject> SceneNPCs = new List<GameObject>(MaxGameObejctCount);
 
     private static AI_Reference instance;
 
@@ -29,12 +27,6 @@ public class AI_Reference : MonoBehaviour
             }
             return instance;
         }
-    }
-
-    public void OnSceneInit()
-    {
-        SceneNPCs = new List<GameObject>(MaxGameObejctCount);
-        Debug.Log("NPC Dynamic Container Init Finish.");
     }
 
     public void OnSceneQuit()

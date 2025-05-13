@@ -10,4 +10,9 @@ public class Recorder : MonoBehaviour
     {
         
     }
+
+    private void FixedUpdate()
+    {
+        Debug.Log($"Current Agent Count:{AI_Reference.Instance.SceneNPCs.Count}");
+    }
 }
