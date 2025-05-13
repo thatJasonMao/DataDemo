@@ -38,9 +38,4 @@ public class XZCircleMotion : MonoBehaviour
 
         _transform.position = new Vector3(xPos, centerPoint.y, zPos);
     }
-
-    private void OnDestroy()
-    {
-        AI_Reference.Instance.UnRegisterNPC(this.gameObject);
-    }
 }
